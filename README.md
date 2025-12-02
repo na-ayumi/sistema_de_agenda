@@ -45,6 +45,27 @@ Ajuste também o arquivo `tsconfig.json` para que fique parecido com o seguinte 
 ```
 
 ### Configurações do banco de dados
+Edite o arquivo `prisma/schema.prisma`, configure o datasource para PostgreSQL e defina o modelo `Compromisso`.
+
+```prisma
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model compromisso {
+  id         Int      @id @default(autoincrement())
+  start_datetime      DateTime @db.Timestamptz(3)
+  end_datetime        DateTime @db.Timestamptz(3)
+  description         String
+
+  @@map("compromissos") // nome da tabela no Postgres
+}
+```
 
 No arquivo `.env`, ajuste `usuario`, `senha`, `localhost`, `5432` e `nome_do_banco` conforme necessário.
 
@@ -55,8 +76,8 @@ DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome_do_banco?schema=pub
 No terminal, execute os seguintes comandos
 
 ```bash
-#1. Irá aplicar as migrations existentes
-npx prisma migrate deploy
+#1. Irá criar a tabela 'compromissos' no banco de dados
+npx prisma migrate dev --name init
 
 #2. Irá gerar o cliente Prisma
 npx prisma generate
