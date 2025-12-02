@@ -70,7 +70,7 @@ Instale o pacote commader:
 npm install commander
 ```
 
-Para excuatar a CLI, execute os seguintes comandos:
+Para executar a CLI, execute os seguintes comandos:
 
 ```bash
 #Para listar compromissos
