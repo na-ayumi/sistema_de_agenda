@@ -14,7 +14,7 @@ npm init -y
 npm install typescript tsx @types/node --save-dev
 
 # 3. Gere o arquivo tsconfig.json
-npm tsc --init
+npx tsc --init
 
 #4. Instale Prisma e os tipos para Node e PostgreSQL como devDependencies
 npm install prisma @types/node @types/pg @prisma/adapter-pg  @prisma/client --save-dev
