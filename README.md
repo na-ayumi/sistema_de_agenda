@@ -131,5 +131,12 @@ curl http://localhost:3000/compromissos
 **Adicionar compromissos**
 
 ```bash
-
+#Exemplo - para adicionar compromisso, troque para a data e o horário desejados
+curl -X POST http://localhost:3000/compromissos \
+  -H "Content-Type: application/json" \
+  -d '{
+    "dataInicio": "2025-12-03T07:00:00.000Z",
+    "dataFim": "2025-12-03T09:00:00.000Z",
+    "descricao": "Estudar"
+  }'
 ```
